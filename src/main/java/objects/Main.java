@@ -10,8 +10,9 @@ public class Main {
         cats.overloading();
 
         Dogs dogs = new Dogs("Dog","PitBull",6);
+        Dogs dogs2 = new Dogs("Dog","PitBull",6);
         dogs.overloading();
-
-
+        System.out.println(dogs.equals(dogs2));
     }
+
 }

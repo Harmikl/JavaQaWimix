@@ -4,13 +4,20 @@ import java.util.Objects;
 
 public class Just {
 
+int q =1;
 
-    Object obj1 = new Object();
-    Object obj2 = new Object();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Just just = (Just) o;
+        return q == just.q;
+    }
+
 
     public static void main(String[] args) {
         Just just = new Just();
-        System.out.println(just.obj1.equals(just.obj2));
+        Just just2 = new Just();
+        System.out.println(just.equals(just2));
     }
-
 }

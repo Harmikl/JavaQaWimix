@@ -10,7 +10,6 @@ public class ObjectsEquals {
     Object obj2 = new Object();
 
 
-
     public static void main(String[] args) {
         ObjectsEquals objects = new ObjectsEquals();
         System.out.println(objects.obj1.equals(objects.obj2));
