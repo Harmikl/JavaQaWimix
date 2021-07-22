@@ -1,8 +1,8 @@
 package objects;
 
 public class Cats extends Animals {
-    public Cats(String kind, String name, int age) {
-        super(kind, name, age);
+    public Cats(String kind, String voice, int age, int weight) {
+        super(kind, voice, age, weight);
     }
 
     public void catOverloading(){
@@ -19,8 +19,8 @@ public class Cats extends Animals {
 
     public void useSuperInVariables() {
         int age = super.age;
-        String name = super.name;
-        System.out.println("I use super in variables and my name is "+name+" and I am "+age+" years old");
+        String voice = super.voice;
+        System.out.println("I use super in variables and my voice is "+voice+" and I am "+age+" years old");
     }
 
     @Override

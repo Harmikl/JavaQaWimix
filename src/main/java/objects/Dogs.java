@@ -1,13 +1,7 @@
 package objects;
 
 public class Dogs extends Animals {
-    public Dogs(String kind, String name, int age) {
-        super(kind, name, age);
+    public Dogs(String kind, String voice, int age, int weight) {
+        super(kind, voice, age, weight);
     }
-
-    @Override
-    public void overloading(){
-        System.out.println("I've'override overloading method for dogs class");
-    }
-
 }
