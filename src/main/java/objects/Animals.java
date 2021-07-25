@@ -13,6 +13,10 @@ public class Animals {
         this.weight = weight;
     }
 
+    public Animals() {
+
+    }
+
     public void overloading(){
         System.out.println("It's a method without method overloading ");
     }

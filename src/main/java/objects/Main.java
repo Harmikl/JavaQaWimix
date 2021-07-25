@@ -23,6 +23,7 @@ public class Main {
         String str4 = str3.replaceAll("\\W+"," "); // заменил любой символ, кроме буквенного, цифрового или знака подчёркивания на пробел
         String str5 = str1.replaceAll("\\d+","!!!");// заменил цифровые символы на !!!
         String str6 = str5.replaceAll("^[a-zA-Z]{4}","Relaxing massage ");// заменил слово из 4 латинских символов сначала строки
+
         System.out.println(str);
         System.out.println(str1);
         System.out.println(str2);
