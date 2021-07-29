@@ -8,9 +8,10 @@ public class Main {
         //мы не имеем доступ к полям и методам класса - наследника
         man.manIsBrutal();//в классе Man есть  метод manIsBrutal иными словами когда мы создаем обьект класса- наследника,
         //мы  имеем доступ к полям и методам класса - наследника и класса-родителя
-    }
+    } // todo а вообще есть такие вот красивые аннтоции епто
+    // FIXME или такие
 
-    public static void test(Human human){
+    public static void test(Human human) {
         human.eat();
     }
 }
