@@ -1,4 +1,4 @@
-package Patterns.Singletone;
+package patterns.Singletone;
 
 public class Singletone {
     private static Singletone mySingleton;
