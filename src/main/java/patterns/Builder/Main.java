@@ -1,5 +1,7 @@
 package patterns.Builder;
 
+import enums.Brand;
+
 public class Main {
     public static void main(String[] args) {
         CarsBuilder carsBuilder = new CarsBuilder();
@@ -19,7 +21,5 @@ public class Main {
                 .setMaxSpeed(180)
                 .setTrunkSize(340)
                 .build();
-
-        carsBuilder.setMaxSpeed(220).build();
     }
 }

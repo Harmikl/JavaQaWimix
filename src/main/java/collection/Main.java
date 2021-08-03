@@ -17,7 +17,7 @@ public class Main {
         list.add(person1);
         list.add(person2);
         list.add( person3);
-        Iterator<Person> iterator = list.iterator();
+        list.stream().forEach(person -> System.out.println(person.getName()));
 
 
         System.out.println(list.contains(person0));
