@@ -12,8 +12,6 @@ public class Animals implements Info {
     }
     @Override
     public void showInfo() {
-        System.out.println("Id is "+this.id);
+        System.out.println("My Id is - "+this.id);
     }
-    Info info = ()-> System.out.println("Id is "+this.id);
-
 }

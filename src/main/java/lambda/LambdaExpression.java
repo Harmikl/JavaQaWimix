@@ -12,7 +12,7 @@ public class LambdaExpression {
         Thread.sleep(sleepTime);
     }
 
-    public static void whileTrue(int pollingIntervalMs, int timeoutMilliseconds, MyInterface<Boolean> myInterface, String exceptionMsg) throws TimeoutException {
+    public static void whileTrue(int pollingIntervalMs, int timeoutMilliseconds, MyInterface myInterface, String exceptionMsg) throws TimeoutException {
         long timeStart = System.currentTimeMillis();
         while (myInterface.get()) {
             if (System.currentTimeMillis() - timeStart > timeoutMilliseconds) {
@@ -25,7 +25,7 @@ public class LambdaExpression {
 
     public static void main(String[] args) throws TimeoutException {
         whileTrue(2000, 6000, () -> {
-            return Math.random() * 2 > 1;
+            return Math.random() * 2 > 0.5;
         }, "FAILED");
     }
 }

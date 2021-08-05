@@ -19,8 +19,6 @@ public class Main {
         интерфейс Info*/
         showMeInfo(animal1);
         showMeInfo(person1);
-
-
     }
     public static void showMeInfo(Info info){ /* так же можем создать метод который принимает нечто из класса Info*/
         info.showInfo();

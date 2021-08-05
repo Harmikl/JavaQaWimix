@@ -1,7 +1,7 @@
 package lambda;
 
 @FunctionalInterface
-interface MyInterface<T> {
+interface MyInterface {
 
-    T get();
+    boolean get();
 }
