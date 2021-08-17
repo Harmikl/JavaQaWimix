@@ -9,6 +9,7 @@ public class Cars {
 
     @Override
     public String toString() {
+        System.out.println();
         return "Cars{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +

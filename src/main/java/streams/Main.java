@@ -14,6 +14,7 @@ public class Main {
         //reduce, mapping, count
 
         // todo Filter
+
        List<Staff> qa = staff.stream().filter(staff1 -> staff1.getPosition().equals(Positions.QA))
                 .collect(Collectors.toList());
 //       qa.forEach(System.out::println);
