@@ -12,7 +12,7 @@ public class Main {
          @see CarsBuilder#setBrand(String)
          */
         Cars kia = carsBuilder
-                .setBrand(Brand.KIA.)
+                .setBrand(Brand.KIA.getValue())
                 .setModel("Rio")
                 .setEngineSize(1.8)
                 .setMaxSpeed(220)
