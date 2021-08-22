@@ -1,6 +1,6 @@
 package polimorfizm;
 
-public class Main {
+public class Artifact {
     public static void main(String[] args) {
         Human human = new Man(); //создали обькет класса Human в классе Man
         Man man = new Man(); // создали обькет класса man в классе Man
