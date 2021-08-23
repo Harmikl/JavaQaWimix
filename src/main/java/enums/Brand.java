@@ -3,7 +3,7 @@ package enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
+//@AllArgsConstructor
 @Getter
 public enum Brand {
     KIA("Kia"),
@@ -12,11 +12,11 @@ public enum Brand {
 
     private final String value;
 
-//    public String getValue() {
-//        return value;
-//    }
-//
-//    Brand(String value) {
-//        this.value = value;
-//    }
+    public String getValue() {
+        return value;
+    }
+
+    Brand(String value) {
+        this.value = value;
+    }
 }

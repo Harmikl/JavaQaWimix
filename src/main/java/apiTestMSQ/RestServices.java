@@ -49,5 +49,4 @@ public class RestServices {
                 .extract()
                 .as(apiTestMSQ.Token.class);
     }
-
 }

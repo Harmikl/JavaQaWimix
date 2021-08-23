@@ -9,6 +9,7 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import lombok.SneakyThrows;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -83,7 +84,7 @@ public class RestService {
                 .as(Order[].class);
     }
 
-    public Order[] getOrderHistory_2(String accessToken, int asset, int orderType) {
+    public Order[] getOrderHistory_2(String accessToken, int asset, int orderType) throws IOException {
         return given()
                 .auth()
                 .oauth2(accessToken)
@@ -117,7 +118,7 @@ public class RestService {
      * @param field for any field which we want to set
      */
     @SneakyThrows
-    private Map<String, Object> initHistoryBodyFromJson(Object[]... field) {
+    private Map<String, Object> initHistoryBodyFromJson(Object[]... field) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> body = mapper.readValue(new File(
                 "src/main/resources/history.json"), new TypeReference<Map<String, Object>>() {
