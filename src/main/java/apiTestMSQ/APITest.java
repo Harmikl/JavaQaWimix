@@ -22,5 +22,9 @@ public class APITest extends TestRunner{
     public void emailIsWright(){
         assertEquals(REST_SERVICES.getToken().getEmail(),"xiharmikl57@gmail.com",
                 " Email "+REST_SERVICES.getToken().getEmail()+"is incorrect");
+    }@Test
+    public void emailIsWright1(){
+        assertEquals(REST_SERVICES.getToken().getStatus(),"confirmed",
+                " Token broken");
     }
 }

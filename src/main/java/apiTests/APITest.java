@@ -6,6 +6,8 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import java.io.IOException;
+
 import static apiTests.Assets.ADAUSD;
 import static apiTests.OrderTypes.CLOSED;
 import static apiTests.OrderTypes.OPEN;
@@ -37,7 +39,7 @@ public class APITest extends TestRunner {
     }
 
     @Test
-    public void getOpenOrdersHistory() {
+    public void getOpenOrdersHistory() throws IOException {
         int numberOfOpenOrders = REST_SERVICE.getOrderHistory_2(token, ADAUSD.getAssetType(), OPEN.getType()).length;
         assertEquals(1, numberOfOpenOrders, "Number of open orders is incorrect");
     }
