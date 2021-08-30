@@ -47,6 +47,6 @@ public class RestServices {
                 .statusCode(200)
                 .body("email",equalTo("xiharmikl57@gmail.com"))
                 .extract()
-                .as(apiTestMSQ.Token.class);
+                .as(Token.class);
     }
 }
