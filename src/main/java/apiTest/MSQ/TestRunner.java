@@ -1,4 +1,4 @@
-package apiTestMSQ;
+package apiTest.MSQ;
 
 import apiTests.APITest;
 import org.junit.platform.runner.JUnitPlatform;

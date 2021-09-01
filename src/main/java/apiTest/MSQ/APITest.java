@@ -1,16 +1,15 @@
-package apiTestMSQ;
+package apiTest.MSQ;
 
-import apiTests.RestService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 
+import static apiTest.MSQ.RestServices.GENERATED_EMAIL;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * created by maksimkharmak , 22.08.21
  */
 public class APITest extends TestRunner{
-    private static final apiTestMSQ.RestServices REST_SERVICES = new RestServices();
+    private static final RestServices REST_SERVICES = new RestServices();
     private static String token;
 
     @Test
@@ -26,5 +25,11 @@ public class APITest extends TestRunner{
     public void emailIsWright1(){
         assertEquals(REST_SERVICES.getToken().getStatus(),"confirmed",
                 " Token broken");
+    }
+    @Test
+    public void registerSuccessTrue(){
+        assertEquals(REST_SERVICES.registerUser(GENERATED_EMAIL,"Qwe12345*").getSuccess(),true,
+                "success is not true");
+        
     }
 }

@@ -1,9 +1,12 @@
-package apiTestMSQ;
+
+/**
+ * created by maksimkharmak , 1.09.21
+ */
+
+package apiTest.MSQ;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.processing.Generated;
-
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,8 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "isSecondFactorAuthenticated",
         "needSetupPassword"
 })
-@Generated("jsonschema2pojo")
-public class Token {
+class Auth {
 
     @JsonProperty("success")
     private Boolean success;
@@ -200,3 +202,64 @@ public class Token {
     }
 
 }
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "success",
+        "msg",
+        "auth"
+})
+
+public class Register {
+
+    @JsonProperty("success")
+    private Boolean success;
+    @JsonProperty("msg")
+    private String msg;
+    @JsonProperty("auth")
+    private Auth auth;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+    @JsonProperty("success")
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    @JsonProperty("success")
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
+
+    @JsonProperty("msg")
+    public String getMsg() {
+        return msg;
+    }
+
+    @JsonProperty("msg")
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    @JsonProperty("auth")
+    public Auth getAuth() {
+        return auth;
+    }
+
+    @JsonProperty("auth")
+    public void setAuth(Auth auth) {
+        this.auth = auth;
+    }
+
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
+}
+
