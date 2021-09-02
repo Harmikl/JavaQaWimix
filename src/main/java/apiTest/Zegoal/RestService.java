@@ -16,9 +16,12 @@ import static io.restassured.RestAssured.given;
 public class RestService {
     private final static String BASE_URL = "https://testing7.zgdev.info",
     LOGIN_END_POINT = "/api/auth/token/",
-    CLIENT_LIST_END_POINT = "api/aufatmen/client/",
+    CLIENT_LIST_END_POINT = "/api/aufatmen/client/",
+    USER_SETTINGS_ENDPOINT = "/api/v1/user_settings/",
     USERNAME = "22ww@mail.com",
     PASSWORD = "Wimix1";
+
+
 
     static {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
@@ -38,6 +41,21 @@ public class RestService {
                 .as(Token.class);
     }
 
+    public ListOfSettings getListOfSettings(String access_token){
+        return given()
+                .contentType(ContentType.JSON)
+                .auth()
+                .oauth2(access_token)
+//                .header("Authorization","Bearer "+access_token)
+                .when()
+                .get(BASE_URL+USER_SETTINGS_ENDPOINT)
+                .then()
+                .assertThat()
+                .contentType(ContentType.JSON)
+                .statusCode(200)
+                .extract()
+                .as(ListOfSettings.class);
+    }
 
     private Map<String,Object> initLoginBody(){
         Map<String,Object> body = new HashMap<>();

@@ -1,5 +1,6 @@
 package apiTest.Zegoal;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -9,9 +10,14 @@ public class ApiTests {
     private static final RestService REST_SERVICE = new RestService();
     private static String token;
 
-    @Test
-    public void getToken(){
+    @BeforeAll
+    public static void getToken(){
         token = REST_SERVICE.getToken().getAccessToken();
     }
 
+    @Test
+    public void getUserSettings(){
+        REST_SERVICE.getListOfSettings(token);
+    }
 }
+

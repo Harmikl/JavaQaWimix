@@ -30,6 +30,6 @@ public class APITest extends TestRunner{
     public void registerSuccessTrue(){
         assertEquals(REST_SERVICES.registerUser(GENERATED_EMAIL,"Qwe12345*").getSuccess(),true,
                 "success is not true");
-        
+
     }
 }
