@@ -1,6 +1,9 @@
 package apiTest.MSQ;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 
 import static apiTest.MSQ.RestServices.GENERATED_EMAIL;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,8 +15,8 @@ public class APITest extends TestRunner{
     private static final RestServices REST_SERVICES = new RestServices();
     private static String token;
 
-    @Test
-    public void getToken(){
+    @BeforeAll
+    static void getToken(){
        token = REST_SERVICES.getToken().getToken();
     }
 
@@ -21,15 +24,11 @@ public class APITest extends TestRunner{
     public void emailIsWright(){
         assertEquals(REST_SERVICES.getToken().getEmail(),"xiharmikl57@gmail.com",
                 " Email "+REST_SERVICES.getToken().getEmail()+"is incorrect");
-    }@Test
-    public void emailIsWright1(){
-        assertEquals(REST_SERVICES.getToken().getStatus(),"confirmed",
-                " Token broken");
     }
-    @Test
-    public void registerSuccessTrue(){
-        assertEquals(REST_SERVICES.registerUser(GENERATED_EMAIL,"Qwe12345*").getSuccess(),true,
-                "success is not true");
 
+    @Test
+    public void registerSuccessTrue() throws IOException {
+        assertEquals(REST_SERVICES.registerUser(GENERATED_EMAIL).getMsg(),
+                "Email successfully sent","Email is not successfully sent");
     }
 }

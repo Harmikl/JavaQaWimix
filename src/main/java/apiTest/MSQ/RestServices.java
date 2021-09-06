@@ -10,6 +10,7 @@ import io.restassured.http.ContentType;
 import lombok.SneakyThrows;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ import static io.restassured.RestAssured.given;
 public class RestServices {
     private final static String BASE_URL = "https://develop.msq.ai";
     private final static String LOGIN_END_POINT = "/endpoints/platform/auth/login";
-    private final static String REGISTER_END_POINT = "/endpoints/platform/auth/register_old";
+    private final static String REGISTER_END_POINT = "/endpoints/platform/auth/register";
     private final static String EMAIL = "xiharmikl57@gmail.com";
     public static String GENERATED_EMAIL = getGeneratedEmail()+"@gmail.com";
     private final static String PASSWORD = "Qwerty123*";
@@ -58,11 +59,10 @@ public class RestServices {
                 .as(Token.class);
     }
 
-    public Register registerUser(String email, String password){
+    public Register registerUser(String email) throws IOException {
         return given()
                 .contentType(ContentType.JSON)
-                .body(initRegisterBodyFromJson(new Object[]{"email", email},new Object[]{"password",password},
-                new Object[]{"passwordconfirmation",password}))
+                .body(initRegisterBodyFromJson(new Object[]{"email", email}))
                 .when()
                 .post(BASE_URL+REGISTER_END_POINT)
                 .then()
@@ -74,7 +74,7 @@ public class RestServices {
     }
 
     @SneakyThrows
-    private Map<String,Object> initRegisterBodyFromJson(Object[]... field){
+    private Map<String,Object> initRegisterBodyFromJson(Object[]... field) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         Map<String,Object> body = mapper.readValue(new File("src/main/java/apiTest/MSQ/Register.json"),
                 new TypeReference<Map<String, Object>>() {
