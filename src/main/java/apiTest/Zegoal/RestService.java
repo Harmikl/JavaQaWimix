@@ -46,7 +46,6 @@ public class RestService {
                 .contentType(ContentType.JSON)
                 .auth()
                 .oauth2(access_token)
-//                .header("Authorization","Bearer "+access_token)
                 .when()
                 .get(BASE_URL+USER_SETTINGS_ENDPOINT)
                 .then()
