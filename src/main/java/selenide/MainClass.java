@@ -6,13 +6,12 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 import static com.codeborne.selenide.Configuration.*;
-import static com.codeborne.selenide.Selenide.open;
+
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 import static selenide.Locators.*;
 
 /**
@@ -48,9 +47,9 @@ public class MainClass extends TestSuitte {
     public void clickElementById(String id){
         $(By.id(id));
     }
-    public void getItem(String items_locator, String contains, String attribute){
-         getItems(items_locator).stream().filter(tabItem -> tabItem.getAttribute(attribute).contains(contains))
-                .findFirst().orElseThrow().click();
+    public SelenideElement getItem(String items_locator, String contains, String attribute){
+        return getItems(items_locator).stream().filter(tabItem -> tabItem.getAttribute(attribute).contains(contains))
+                .findFirst().orElseThrow();
     }
 
      public void compareText(String css, String expected_string){
