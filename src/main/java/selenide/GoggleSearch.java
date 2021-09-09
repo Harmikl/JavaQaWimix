@@ -1,27 +1,31 @@
 package selenide;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static selenide.MainClass.BASE_URL;
+import static selenide.Locators.*;
 
 /**
  * created by maksimkharmak , 8.09.21
  */
 public class GoggleSearch extends MainClass{
     @Test
-    public void enterKeyWordsInSearchLine(){
+    public void someCasesForWimixSite(){
         MainClass m = new MainClass();
-        open(BASE_URL);
-        m.enterValueInSearchAndEnter("Wimix");
-        m.clickElementByCSS("div.yuRUbf > a");
-        m.clickElementByCSS("div.col-12.col-lg-5.left-content > div.nav.nav-tabs > a > span");
-        m.tabItemIsSelected("about-company__tab nav-item nav-link active show");
-        $(By.cssSelector("#contacts > div > div > div:nth-child(3) > div:nth-child(1) > a"))
-                .scrollIntoView(true).click();
-
-
+        m.enterValueInSearchAndEnter(SEARCH_FIELD_VALUE);
+//        m.clickElementByCSS(WIMIX_SITE);
+        m.getItem("div>div>div>a","wimix.by","href");
+        m.clickElementByCSS(MORE);
+        m.compareText(TAB_ITEMS+ABOUT_COMPANY_SELECTED, "who we are");
+        m.clickElementByCSS(TAB_ITEMS+ABOUT_COMPANY_2);
+        m.compareText(ABOUT_COMPANY_2_DENIS_TEXT, DENIS_TEXT);
+        m.compareText(TAB_ITEMS+ABOUT_COMPANY_SELECTED,"leaders");
+        m.clickElementByCSS(LANGUAGE_BUTTON);
+        m.clickElementByCSS(RUSSIAN_LANGUAGE_ICON);
+        m.compareText(HOME_OUR_CLIENTS_TEXT,"наши клиенты");
+        m.scrollToFind(INSTAGRAM_FOOTER_ICON);
+        m.clickElementByCSS(CONTACT_US);
+        m.setValueInInput(CONTACT_US_EMAIL_INPUT,"111");
+        m.clickElementByCSS(CONTACT_US_SUBMIT);
     }
 }
