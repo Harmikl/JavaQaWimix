@@ -5,7 +5,7 @@ public class Locators  {
                BASE_URL = "https://www.google.com/",
        TAB_ITEMS = "div > a",
     SEARCH_FIELD_VALUE = "Wimix",
-       WIMIX_SITE = "div.yuRUbf > a",
+       WIMIX_SITE = "[href=\"https://wimix.com/\"]",
        MORE = "div.col-12.col-lg-5.left-content > div.nav.nav-tabs > a > span",
        ABOUT_COMPANY_SELECTED = ".about-company__tab.nav-item.nav-link.active > span.about-company__tab-text",
        ABOUT_COMPANY_1 = ":nth-child(1) > span.about-company__tab-text",

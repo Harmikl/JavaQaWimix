@@ -47,9 +47,9 @@ public class MainClass extends TestSuitte {
     public void clickElementById(String id){
         $(By.id(id));
     }
-    public SelenideElement getItem(String items_locator, String contains, String attribute){
-        return getItems(items_locator).stream().filter(tabItem -> tabItem.getAttribute(attribute).contains(contains))
-                .findFirst().orElseThrow();
+    public void getItem(String items_locator, String contains){
+         getItems(items_locator).stream().filter(tabItem -> tabItem.getText().contains(contains))
+                .findFirst().orElseThrow().click();
     }
 
      public void compareText(String css, String expected_string){
@@ -62,5 +62,8 @@ public class MainClass extends TestSuitte {
      }
      public void scrollToFind(String locator){
         $(By.cssSelector(locator)).scrollIntoView(true);
+     }
+     public void scrollToFindAndClick(String locator){
+        $(By.cssSelector(locator)).scrollIntoView(true).click();
      }
 }

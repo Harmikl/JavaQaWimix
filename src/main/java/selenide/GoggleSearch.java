@@ -1,5 +1,6 @@
 package selenide;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -14,7 +15,7 @@ public class GoggleSearch extends MainClass{
         MainClass m = new MainClass();
         m.enterValueInSearchAndEnter(SEARCH_FIELD_VALUE);
 //        m.clickElementByCSS(WIMIX_SITE);
-        m.getItem("div>div>div>a","wimix.by","href");
+        m.getItem("div>div>div>a","wimix.by");
         m.clickElementByCSS(MORE);
         m.compareText(TAB_ITEMS+ABOUT_COMPANY_SELECTED, "who we are");
         m.clickElementByCSS(TAB_ITEMS+ABOUT_COMPANY_2);
@@ -27,5 +28,11 @@ public class GoggleSearch extends MainClass{
         m.clickElementByCSS(CONTACT_US);
         m.setValueInInput(CONTACT_US_EMAIL_INPUT,"111");
         m.clickElementByCSS(CONTACT_US_SUBMIT);
+    }
+    @Test
+    public void debug (){
+        MainClass m = new MainClass();
+        m.enterValueInSearchAndEnter(SEARCH_FIELD_VALUE);
+        m.scrollToFindAndClick("[href=\"https://wimix.tam.by/\"]");
     }
 }
