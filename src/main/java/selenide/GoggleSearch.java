@@ -1,6 +1,5 @@
 package selenide;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -14,20 +13,19 @@ public class GoggleSearch extends MainClass{
     public void someCasesForWimixSite(){
         MainClass m = new MainClass();
         m.enterValueInSearchAndEnter(SEARCH_FIELD_VALUE);
-//        m.clickElementByCSS(WIMIX_SITE);
-        m.getItem("div>div>div>a","wimix.by");
-        m.clickElementByCSS(MORE);
+        m.getItemAndClick(LIST_OF_VALUES_ON_GOOGLE_SEARCH,"wimix.by");
+        m.clickElement(MORE);
         m.compareText(TAB_ITEMS+ABOUT_COMPANY_SELECTED, "who we are");
-        m.clickElementByCSS(TAB_ITEMS+ABOUT_COMPANY_2);
+        m.clickElement(TAB_ITEMS+ABOUT_COMPANY_2);
         m.compareText(ABOUT_COMPANY_2_DENIS_TEXT, DENIS_TEXT);
         m.compareText(TAB_ITEMS+ABOUT_COMPANY_SELECTED,"leaders");
-        m.clickElementByCSS(LANGUAGE_BUTTON);
-        m.clickElementByCSS(RUSSIAN_LANGUAGE_ICON);
+        m.clickElement(LANGUAGE_BUTTON);
+        m.clickElement(RUSSIAN_LANGUAGE_ICON);
         m.compareText(HOME_OUR_CLIENTS_TEXT,"наши клиенты");
         m.scrollToFind(INSTAGRAM_FOOTER_ICON);
-        m.clickElementByCSS(CONTACT_US);
+        m.clickElement(CONTACT_US);
         m.setValueInInput(CONTACT_US_EMAIL_INPUT,"111");
-        m.clickElementByCSS(CONTACT_US_SUBMIT);
+        m.clickElement(CONTACT_US_SUBMIT);
     }
     @Test
     public void debug (){
