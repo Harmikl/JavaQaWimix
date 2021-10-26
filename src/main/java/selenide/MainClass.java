@@ -71,7 +71,7 @@ public class MainClass extends TestSuitte {
 
     public void clickElement(String locator){
         By by = this.getLocatorByString(locator);
-        $(by);
+        $(by).click();
     }
 
     public void getItemAndClick(String items_locator, String contains){
@@ -89,10 +89,12 @@ public class MainClass extends TestSuitte {
          Assert.assertEquals(expected_attribute.toLowerCase(),$(By.cssSelector(css)).getAttribute(actual_attribute).toLowerCase());
      }
      public void scrollToFind(String locator){
-        $(By.cssSelector(locator)).scrollIntoView(true);
+         By by = this.getLocatorByString(locator);
+        $(by).scrollIntoView(true);
      }
      public void scrollToFindAndClick(String locator){
-        $(By.cssSelector(locator)).scrollIntoView(true).click();
+         By by = this.getLocatorByString(locator);
+         $(by).click();
      }
 
 }

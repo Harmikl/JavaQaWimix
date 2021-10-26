@@ -23,7 +23,7 @@ public class Locators  {
        CONTACT_US = "css:body > section.contact-us > div.message__button > button",
        CONTACT_US_EMAIL_INPUT = "css:#white-block__form-email-popup",
        CONTACT_US_SUBMIT = "css:button[class=\"white-block__form-submit\"]";
-
+//css:div > acss:.about-company__tab.nav-item.nav-link.active > span.about-company__tab-text
 
 
 
